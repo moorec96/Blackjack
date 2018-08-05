@@ -38,12 +38,12 @@ class Blackjack extends React.Component {
 				newDeck.push(this.tempDeck[index]);
 				this.tempDeck.splice(index, 1);
 			}
-
+			this.initializeGame();
 			this.setState({
 				currentCard: 'Ready to Play', deck: newDeck, currentHand: currHand,
 				dealerHand: currDealerHand
 			});
-			this.initializeGame();
+			console.log(this.state.currentCard + "		" + this.bust);
 
 		}
 	}
@@ -64,6 +64,7 @@ class Blackjack extends React.Component {
 	}
 
 	hitMe() {
+		console.log(this.state.currentCard + "		" + this.bust);
 		if (this.bust) {
 			this.setState({ currentCard: 'You went over 21 :(' });
 			return;
